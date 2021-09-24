@@ -1,15 +1,15 @@
 import ExpenseItem from "./ExpenseItem";
 
-import "./ExpensesList.css";
+import "./ExpensesList.scss";
 
-const ExpensesList = ({ items }) => {
-  if (items.length === 0) {
+const ExpensesList = ({ expenses }) => {
+  if (expenses.length === 0) {
     return <h2 className="expenses-list__fallback">Found no expenses.</h2>;
   }
 
   return (
     <ul className="expenses-list">
-      {items.map((expense) => {
+      {expenses.map((expense) => {
         return (
           <ExpenseItem
             key={expense.id}

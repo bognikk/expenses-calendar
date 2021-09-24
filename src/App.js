@@ -3,7 +3,7 @@ import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-import "./App.css"
+import "./App.scss";
 
 const DUMMY_EXPENSES = [
   {
@@ -30,10 +30,16 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  const addExpenseHandler = (expense) => {
-    setExpenses(prevExpenses => {
-      return [expense, ...prevExpenses];
+  const addExpenseHandler = (newExpense) => {
+    setExpenses((prevExpenses) => {
+      return [newExpense, ...prevExpenses];
     });
+
+    // window.scroll({
+    //   top: 350,
+    //   left: 0,
+    //   behavior: "smooth",
+    // });
   };
 
   return (

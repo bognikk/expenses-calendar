@@ -16,10 +16,15 @@ const ExpensesChart = ({expenses}) => {
    { label: "Dec", value: 0 },
  ];
 
- for (const expense of expenses) {
-  const expenseMonth = expense.date.getMonth(); //Starting at 0 => Jan = 0
-  chartDataPoints[expenseMonth].value += expense.amount;
- }
+//  for (const expense of expenses) {
+//   const expenseMonth = expense.date.getMonth(); //Starting at 0 => Jan = 0
+//   chartDataPoints[expenseMonth].value += expense.amount;
+//   }
+  
+  expenses.forEach(expense => {
+    const expenseMonth = expense.date.getMonth(); //Starting at 0 => Jan = 0
+    chartDataPoints[expenseMonth].value += expense.amount;
+  });
   
   return <Chart dataPoints={chartDataPoints} />;
 }

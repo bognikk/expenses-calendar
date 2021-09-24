@@ -5,10 +5,11 @@ import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
 import ExpensesChart from "./ExpensesChart";
 
-import "./Expenses.css";
+import "./Expenses.scss";
 
 const Expenses = ({ items }) => {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  const currentYear = new Date().getFullYear().toString();
+  const [filteredYear, setFilteredYear] = useState(currentYear);
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
@@ -26,7 +27,7 @@ const Expenses = ({ items }) => {
           selected={filteredYear}
         />
         <ExpensesChart expenses={filteredExpenses} />
-        <ExpensesList items={filteredExpenses} />
+        <ExpensesList expenses={filteredExpenses} />
       </Card>
     </>
   );

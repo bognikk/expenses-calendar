@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import ExpenseForm from "./ExpenseForm";
 
-import "./NewExpense.css";
+import "./NewExpense.scss";
 
 const NewExpense = ({ onAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -12,6 +12,8 @@ const NewExpense = ({ onAddExpense }) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
+    // setIsEditing(false);
+
     onAddExpense(expanseData);
   };
 
